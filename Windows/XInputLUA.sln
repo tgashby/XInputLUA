@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XInputLUA", "XInputLUA.vcxproj", "{E85459A6-A319-45FA-9D2A-DA660B93DB61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E85459A6-A319-45FA-9D2A-DA660B93DB61}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E85459A6-A319-45FA-9D2A-DA660B93DB61}.Debug|Win32.Build.0 = Debug|Win32
+		{E85459A6-A319-45FA-9D2A-DA660B93DB61}.Release|Win32.ActiveCfg = Release|Win32
+		{E85459A6-A319-45FA-9D2A-DA660B93DB61}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

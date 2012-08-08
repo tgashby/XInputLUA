@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\wrap_XInputLUA.h" />
+    <ClInclude Include="..\IXInputLUA.h" />
+    <ClInclude Include="..\XInputLUA.h" />
+    <ClInclude Include="XInputLUA.h">
+      <Filter>Windows</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\wrap_XInputLUA.cpp" />
+    <ClCompile Include="XInputLUA.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{b0c2175c-a185-41a3-b4c3-d0636bb14b54}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
