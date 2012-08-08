@@ -466,3 +466,9 @@ namespace Windows
 	}
 
 }
+
+IXInputLUA* createXInputLUA()
+{
+	return new Windows::XInputLUA;
+}
+

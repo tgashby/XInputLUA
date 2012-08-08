@@ -3,6 +3,8 @@
 
 #include "IXInputLUA.h"
 
+IXInputLUA* createXInputLUA();
+
 #ifdef _WINDLL
 #include "Windows\XInputLUA.h"
 #endif

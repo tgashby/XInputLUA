@@ -4,9 +4,12 @@
 #include "../XInputLUA.h"
 #include <XInput.h>
 
+IXInputLUA* createXInputLUA();
+
 namespace Windows 
 {
 #define MAXCONTROLLERS 4
+
 
 	class XInputLUA: public IXInputLUA
 	{

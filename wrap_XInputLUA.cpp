@@ -21,6 +21,8 @@
 #include "wrap_XInputLUA.h"
 #include "XInputLUA.h"
 
+#include <exception>
+
 namespace Wrapper
 {
 	static IXInputLUA * instance = 0;
@@ -54,14 +56,14 @@ namespace Wrapper
 	int w_open(lua_State * L)
 	{
 		int index = luaL_checkint(L, 1)-1;
-		luax_pushboolean(L, instance->open(index));
+		lua_pushboolean(L, instance->open(index) ? 1 : 0);
 		return 1;
 	}
 
 	int w_isOpen(lua_State * L)
 	{
 		int index = luaL_checkint(L, 1)-1;
-		luax_pushboolean(L, instance->isOpen(index));
+		lua_pushboolean(L, instance->isOpen(index) ? 1 : 0);
 		return 1;
 	}
 
@@ -124,7 +126,7 @@ namespace Wrapper
 		}
 		buttonlist[counter] = -1;
 
-		luax_pushboolean(L, instance->isDown(index, buttonlist));
+		lua_pushboolean(L, instance->isDown(index, buttonlist) ? 1 : 0);
 		delete[] buttonlist;
 		return 1;
 	}
@@ -134,10 +136,8 @@ namespace Wrapper
 		int index = luaL_checkint(L, 1)-1;
 		int hat = luaL_checkint(L, 2)-1;
 
-		Joystick::Hat h = instance->getHat(index, hat);
+		const char * direction = instance->getHat(index, hat);
 
-		const char * direction = "";
-		Joystick::getConstant(h, direction);
 		lua_pushstring(L, direction);
 
 		return 1;
@@ -178,24 +178,19 @@ namespace Wrapper
 		{
 			try
 			{
-				instance = new Joystick();
+				instance = createXInputLUA();
 			}
-			catch (Exception & e)
+			catch (std::exception & e)
 			{
 				return luaL_error(L, e.what());
 			}
 		}
-		else
-			instance->retain();
+		//else
+			//instance->retain();
 
 
-		WrappedModule w;
-		w.module = instance;
-		w.name = "joystick";
-		w.flags = MODULE_T;
-		w.functions = functions;
-		w.types = 0;
-
-		return luax_register_module(L, w);
+		luaL_register(L, "XInputLUA", functions);
+		
+		return 1;
 	}
 } 
