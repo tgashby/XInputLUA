@@ -18,8 +18,8 @@
 * 3. This notice may not be removed or altered from any source distribution.
 **/
 
-#include "wrap_XInputLUA.h"
 #include "XInputLUA.h"
+#include "wrap_XInputLUA.h"
 
 #include <exception>
 

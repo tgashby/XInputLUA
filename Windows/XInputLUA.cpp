@@ -1,6 +1,7 @@
 
 #include <Windows.h>
 #include "XInputLUA.h"
+//#include "love_helpers.h"
 
 extern "C" {
 	#include "lua.h"
@@ -423,14 +424,12 @@ namespace Windows
 
 	//this is a temporary and extremely naive implementation of the d-pad on xbox which needs to be significantly
 	//more complex to handle how terrible the d-pad is. 
-	XInputLUA::Hat XInputLUA::getHat(int index, int hat)
+	const char* XInputLUA::getHat(int index, int hat)
 	{
-		Hat h = HAT_CENTERED;
-
 		if(padValid[index])
 		{
 			if (hat >= getNumHats(index))
-				return h;
+				return "c";
 		
 			bool up = (currentState[index].Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP) != 0;
 			bool down = (currentState[index].Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN) != 0;
@@ -438,27 +437,24 @@ namespace Windows
 			bool right = (currentState[index].Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT) != 0;
 			
 			if( up && right )
-				h = HAT_RIGHTUP;
+				return "ru";
 			else if( up && left )
-				h = HAT_LEFTUP;
+				return "lu";
 			else if( down && right) 
-				h = HAT_RIGHTDOWN;
+				return "rd";
 			else if( down && left )
-				h = HAT_LEFTDOWN;
+				return "ld";
 			else if( up ) 
-				h = HAT_UP;
+				return "u";
 			else if( down )
-				h = HAT_DOWN;
+				return "d";
 			else if( right )
-				h = HAT_RIGHT;
+				return "r";
 			else if( left )
-				h = HAT_LEFT;
-			else
-				h = HAT_CENTERED;
-
+				return "l";
 
 		}
-		return h;
+		return "c";
 	}
 
 	void XInputLUA::close(int index)

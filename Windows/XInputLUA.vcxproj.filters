@@ -7,12 +7,14 @@
     <ClInclude Include="XInputLUA.h">
       <Filter>Windows</Filter>
     </ClInclude>
+    <ClInclude Include="..\love_helpers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\wrap_XInputLUA.cpp" />
     <ClCompile Include="XInputLUA.cpp">
       <Filter>Windows</Filter>
     </ClCompile>
+    <ClCompile Include="..\love_helpers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Windows">

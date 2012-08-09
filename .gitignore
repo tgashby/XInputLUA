@@ -7,4 +7,5 @@ bin/
 *.sdf
 *.opensdf
 Debug/
+Release/
 ipch/

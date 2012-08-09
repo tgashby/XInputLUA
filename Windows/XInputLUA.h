@@ -2,9 +2,8 @@
 #define WINDOWS_XINPUTLUA_H
 
 #include "../XInputLUA.h"
+#include <Windows.h>
 #include <XInput.h>
-
-IXInputLUA* createXInputLUA();
 
 namespace Windows 
 {
@@ -50,7 +49,7 @@ namespace Windows
 		int getAxes(lua_State * L);
 		int getBall(lua_State * L);
 		bool isDown(int index, int * buttonlist);
-		Hat getHat(int index, int hat);
+		const char* getHat(int index, int hat);
 		void close(int index);
 
 	private:
