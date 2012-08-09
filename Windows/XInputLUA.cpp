@@ -39,7 +39,7 @@ namespace Windows
 			lua_gettable(L, -2);
 			if( lua_istable(L, -1) )
 			{
-				lua_pushstring(L, "XInputLUAreleased"); //s + 1
+				lua_pushstring(L, "joystickreleased"); //s + 1
 				lua_gettable(L, -2);
 
 				if( lua_isfunction(L, -1) )
@@ -70,7 +70,7 @@ namespace Windows
 			lua_gettable(L, -2);
 			if( lua_istable(L, -1) )
 			{
-				lua_pushstring(L, "XInputLUApressed"); //s + 1
+				lua_pushstring(L, "joystickpressed"); //s + 1
 				lua_gettable(L, -2);
 
 				if( lua_isfunction(L, -1) )
