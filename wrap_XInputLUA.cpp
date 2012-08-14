@@ -150,6 +150,25 @@ namespace Wrapper
 		return 0;
 	}
 
+	int w_setRumble(lua_State * L)
+	{
+		int index = luaL_checkint(L, 1)-1;
+		lua_Number pct = luaL_checknumber(L, 2);
+
+		instance->setRumble(index, pct);
+		return 0;
+	}
+	
+	int w_setVibrate(lua_State * L)
+	{
+		int index = luaL_checkint(L, 1)-1;
+		lua_Number pct = luaL_checknumber(L, 2);
+
+		instance->setVibrate(index, pct);
+		return 0;
+	}
+
+
 	// List of functions to wrap.
 	static const luaL_Reg functions[] = {
 		{ "update", w_update },
@@ -169,6 +188,10 @@ namespace Wrapper
 		{ "isDown", w_isDown },
 		{ "getHat", w_getHat },
 		{ "close", w_close },
+
+		{ "setRumble", w_setRumble },
+		{ "setVibrate", w_setVibrate },
+
 		{ 0, 0 }
 	};
 

@@ -46,6 +46,8 @@ namespace Wrapper
 	int w_isDown(lua_State * L);
 	int w_getHat(lua_State * L);
 	int w_close(lua_State * L);
+	int w_setRumble(lua_State * L);
+	int w_setVibrate(lua_State * L);
 	extern "C" LUA_EXPORT int luaopen_XInputLUA(lua_State * L);
 }
 

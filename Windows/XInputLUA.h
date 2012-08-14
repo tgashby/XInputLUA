@@ -22,6 +22,9 @@ namespace Windows
 
 		XINPUT_CAPABILITIES caps[MAXCONTROLLERS];
 
+		XINPUT_VIBRATION vibration[MAXCONTROLLERS];
+
+
 	public:
 		XInputLUA();
 		virtual ~XInputLUA();
@@ -51,6 +54,8 @@ namespace Windows
 		bool isDown(int index, int * buttonlist);
 		const char* getHat(int index, int hat);
 		void close(int index);
+		void setVibrate(int index, lua_Number pct); 
+		void setRumble(int index, lua_Number pct); 
 
 	private:
 

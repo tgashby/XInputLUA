@@ -461,6 +461,34 @@ namespace Windows
 	{
 	}
 
+	void XInputLUA::setRumble(int index, lua_Number _pct)
+	{
+		lua_Number pct;
+		if( _pct < 0.0 )
+			pct = 0.0;
+		else if(_pct > 1.0 )
+			pct = 1.0;
+		else
+			pct = _pct;
+
+		vibration[index].wLeftMotorSpeed = 65535.0 * pct;
+		XInputSetState(index, vibration + index);
+	}
+
+	void XInputLUA::setVibrate(int index, lua_Number _pct)
+	{
+		lua_Number pct;
+		if( _pct < 0.0 )
+			pct = 0.0;
+		else if(_pct > 1.0 )
+			pct = 1.0;
+		else
+			pct = _pct;
+
+		vibration[index].wRightMotorSpeed = 65535.0 * pct;
+		XInputSetState(index, vibration + index);
+	}
+
 }
 
 IXInputLUA* createXInputLUA()

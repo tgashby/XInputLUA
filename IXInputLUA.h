@@ -22,6 +22,8 @@ public:
 	virtual int getAxes(lua_State * L) = 0;
 	virtual bool isDown(int index, int * buttonlist) = 0;
 	virtual const char* getHat(int index, int hat) = 0;
+	virtual void setVibrate(int index, lua_Number pct) = 0; 
+	virtual void setRumble(int index, lua_Number pct) = 0; 
 
 	//the following are for Love backwards compatibility with Joystick module. 
 	virtual bool open(int index) = 0;
