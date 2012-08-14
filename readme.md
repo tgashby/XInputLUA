@@ -62,6 +62,19 @@ threshold: 1-255
 
 Because the triggers are axes but can be used as buttons, Xinput for Love2d reports them as both types of inputs. This threshold is the axis value at which it will consider the trigger as pressed or released.
 
+`love.joystick.setRumble(index, value)`
+
+value: 0.0-1.0
+
+This sets the left motor speed (the low frequency motor). 
+
+`love.joystick.setVibrate(index, value)`
+
+value: 0.0-1.0
+
+This sets the right motor speed (the high frequency motor). 
+
+
 Notes
 -----
 
@@ -78,7 +91,7 @@ I've started a thread on [Love2d.org](https://love2d.org/forums/viewtopic.php?f=
 Coming Soon
 -----------
 
-* Vibration Support
+* DONE! Vibration Support 
 * Deadzone support
 * Lua library for higher level controller management
 * D-Pad smoothing to combat terrible xbox 360 dpad issues.
